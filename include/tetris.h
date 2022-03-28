@@ -11,18 +11,25 @@
     #include <getopt.h>
     #include <curses.h>
 
+typedef struct tetris_game tetris_t;
+
 enum GAME {
     PLAYING,
     WIN,
     LOOSE,
 };
 
-typedef struct tetris_game {
+typedef struct tetris_function_option {
+    char flag;
+    void (* function)(tetris_t *skb);
+} function_option;
+
+struct tetris_game {
     int status;
     int operator;
     int *info_operator;
     struct option long_options[11];
-} tetris_t;
+};
 
 int tetris_game(int ac, char **av);
 

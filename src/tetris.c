@@ -9,31 +9,33 @@
 #include "my.h"
 #include "tetris.h"
 
+void handle_argument(tetris_t *tetris, const char *name)
+{
+    switch (tetris->operator) {
+        case 'h':
+            print_help();
+            break;
+    }
+}
+
 void get_value(tetris_t *tetris)
 {
     switch (tetris->operator) {
         case 0:
-            printf("THIS option %s", tetris->long_options[tetris->info_operator[2]].name);
-            if (optarg)
-                printf(" with arg %s", optarg);
-            printf("\n");
-            break;
+            write(1, "no handle ->", 12);
+            my_putchar((char) tetris->operator);
+            my_putchar('\n');
         case '0':
         case '1':
         case '2':
-            if (tetris->info_operator[0] != 0 && tetris->info_operator[0] != tetris->info_operator[1])
-                printf("digits occur in two different argv-elements.\n");
+            if (tetris->info_operator[0] != 0 &&
+                tetris->info_operator[0] != tetris->info_operator[1])
+                write(1, "in multiple args\n", 17);
             tetris->info_operator[0] = tetris->info_operator[1];
             printf("DEBUG option %c\n", tetris->operator);
             break;
-        case 'h':
-            print_help();
-            break;
-        case 'l':
-            printf("option l with value '%s'\n", optarg);
-            break;
         default:
-            printf("?? getopt returned character code 0%o ??\n", tetris->operator);
+            handle_argument(tetris, optarg);
             break;
     }
 }

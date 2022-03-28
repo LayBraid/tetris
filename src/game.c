@@ -17,11 +17,11 @@ void update_map(char **map, int lines)
 
 void input_manager(tetris_t *skb, int input)
 {
-    for (int i = 0; i < NB_CONTROLS; i++)
-        if (input == skb->controls[i]->input) {
-            skb->controls[i]->function(skb);
-            break;
-        }
+    //for (int i = 0; i < NB_CONTROLS; i++)
+        //if (input == skb->controls[i]->input) {
+        //    skb->controls[i]->function(skb);
+        //    break;
+        //}
 }
 
 void launch_game(tetris_t *skb)
