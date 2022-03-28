@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <sys/fcntl.h>
 #include "my.h"
-#include "buffer.h"
+#include "utils.h"
 
 char *get_in_buffer(char *path)
 {
@@ -52,4 +52,28 @@ int max_line(const char *buffer)
         if (buffer[i] == '\n')
             count++;
     return count;
+}
+
+char *extract_between_limits(char const *exp, int s1, int s2)
+{
+    int length = s2 - s1;
+    char *result = malloc(sizeof(char) * (length + 2));
+
+    for (int index = 0; index <= length; ++index)
+        result[index] = exp[index + s1];
+    result[length + 1] = '\0';
+    return result;
+}
+
+int get_it_char(const char *str, char c, int index)
+{
+    int it = 0;
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == c && it == index)
+            return i;
+        if (str[i] == c && it != index)
+            it++;
+    }
+    return -1;
 }

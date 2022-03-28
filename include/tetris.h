@@ -10,31 +10,26 @@
 
     #include <getopt.h>
     #include <curses.h>
+    #include "struct.h"
 
-typedef struct tetris_game tetris_t;
+    #define KEY_LEFT_DEBUG "KEY_LEFT (260)"
+    #define KEY_RIGHT_DEBUG "KEY_RIGHT (261)"
+    #define KEY_TOP_DEBUG "KEY_TOP (259)"
+    #define KEY_BOT_DEBUG "KEY_BOT (258)"
 
 enum GAME {
     PLAYING,
+    PAUSE,
     WIN,
     LOOSE,
 };
 
-typedef struct tetris_function_option {
-    char flag;
-    void (* function)(tetris_t *skb);
-} function_option;
-
-struct tetris_game {
-    int status;
-    int operator;
-    int *info_operator;
-    struct option long_options[11];
-};
-
 int tetris_game(int ac, char **av);
 
-void init_options(tetris_t *tetris);
+void init_values(tetris_t *tetris);
 
-int print_help(void);
+void launch_game(tetris_t *tetris);
+
+void print_debug(tetris_t *tetris);
 
 #endif

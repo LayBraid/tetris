@@ -6,7 +6,7 @@
 */
 
 #include "checks.h"
-#include "buffer.h"
+#include "utils.h"
 #include "my.h"
 
 int sanity_check(char *path)

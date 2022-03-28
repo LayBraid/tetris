@@ -7,6 +7,7 @@
 
 SRC = $(wildcard src/*.c) \
 	  $(wildcard src/utils/*.c) \
+	  $(wildcard src/options/*.c) \
 	  $(wildcard src/controls/*.c) \
 
 OBJ = $(SRC:.c=.o)
@@ -31,6 +32,7 @@ clean:
 	rm -f src/*.o
 	rm -f src/controls/*.o
 	rm -f src/utils/*.o
+	rm -f src/options/*.o
 	rm -rf *.gcda
 	rm -rf *.gcno
 	rm -rf *.c.gcov
