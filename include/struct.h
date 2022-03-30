@@ -10,6 +10,13 @@
 
 typedef struct tetris_game tetris_t;
 
+typedef struct tetriminos_struct {
+    char *path;
+    int **design;
+    int color;
+    struct tetriminos_struct *next;
+} tetriminos_t;
+
 typedef struct tetris_function_option {
     char flag;
     void (* function)(tetris_t *tetris);
@@ -39,6 +46,7 @@ struct tetris_game {
     struct option *long_options;
     function_option function[11];
     option_t opt;
+    tetriminos_t *tetriminos;
 };
 
 #endif
