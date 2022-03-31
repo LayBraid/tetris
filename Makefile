@@ -8,8 +8,8 @@
 SRC = $(wildcard src/*.c) \
 	  $(wildcard src/utils/*.c) \
 	  $(wildcard src/options/*.c) \
-	  $(wildcard src/controls/*.c) \
 	  $(wildcard src/tetriminos/*.c) \
+	  $(wildcard src/controls/*.c) \
 
 OBJ = $(SRC:.c=.o)
 

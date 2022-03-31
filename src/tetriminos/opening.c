@@ -7,12 +7,13 @@
 
 #include <dirent.h>
 #include <stddef.h>
+#include <printf.h>
 #include "tetriminos.h"
 #include "my.h"
 
 static void add_file_tetriminos(tetris_t *tetris, const char *path)
 {
-    tetriminos_t *tmp = malloc(sizeof(tetriminos_t));
+    tetriminos_t *tmp = tetris->tetriminos;
     tetriminos_t *new = malloc(sizeof(tetriminos_t));
 
     if (tetris->tetriminos == NULL) {
@@ -34,10 +35,9 @@ void open_tetriminos(tetris_t *tetris)
 {
     DIR *dir = opendir("tetriminos");
     struct dirent *dp;
+
     while ((dp = readdir(dir)) != NULL)
         if (dp->d_name[0] != '.')
             add_file_tetriminos(tetris, dp->d_name);
     closedir(dir);
-    free(dir);
-    free(dp);
 }

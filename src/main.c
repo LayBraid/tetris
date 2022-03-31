@@ -9,5 +9,5 @@
 
 int main(int ac, char **av)
 {
-    return tetris_game(ac, av);
+    return game(ac, av);
 }

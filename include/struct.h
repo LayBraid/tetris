@@ -12,8 +12,11 @@ typedef struct tetris_game tetris_t;
 
 typedef struct tetriminos_struct {
     char *path;
+    int valid;
     int **design;
     int color;
+    int row;
+    int col;
     struct tetriminos_struct *next;
 } tetriminos_t;
 

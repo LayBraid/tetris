@@ -24,7 +24,7 @@ enum GAME {
     LOOSE,
 };
 
-int tetris_game(int ac, char **av);
+int game(int ac, char **av);
 
 void init_values(tetris_t *tetris);
 

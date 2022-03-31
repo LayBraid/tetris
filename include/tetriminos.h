@@ -12,4 +12,6 @@
 
 void open_tetriminos(tetris_t *tetris);
 
+void fill_tetriminos(tetris_t *tetris);
+
 #endif
