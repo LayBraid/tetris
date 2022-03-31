@@ -10,7 +10,7 @@
 
 void set_next(tetris_t *tetris)
 {
-    tetris->opt.next = TRUE;
+    tetris->opt.next = FALSE;
 }
 
 void set_debug(tetris_t *tetris)

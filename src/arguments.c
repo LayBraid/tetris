@@ -70,7 +70,7 @@ void get_arguments(int ac, char **av, tetris_t *tetris)
     while (1) {
         tetris->info_operator[1] = optind ? optind : 1;
         tetris->info_operator[2] = 0;
-        tetris->operator = getopt_long(ac, av, "hL:l:r:t:d:q:p:m:w:D",
+        tetris->operator = getopt_long(ac, av, "hL:l:r:t:d:q:p:m:wD",
         tetris->long_options, &tetris->info_operator[2]);
         if (tetris->operator == -1)
             break;
