@@ -7,8 +7,9 @@
 
 #include "tetris.h"
 #include "my.h"
+#include "utils.h"
 
-int print_this(int input)
+static int print_this(int input)
 {
     if (input == 258)
         return my_putstr(KEY_BOT_DEBUG);
@@ -19,6 +20,33 @@ int print_this(int input)
     if (input == 261)
         return my_putstr(KEY_RIGHT_DEBUG);
     return my_printf("%c (%d)", (char) input, input);
+}
+
+static void print_this_tetriminos(tetriminos_t *tetriminos)
+{
+    char *name;
+
+    name = extract_between_limits(tetriminos->path,
+    get_it_char(tetriminos->path, '/', 0) + 1,
+    get_it_char(tetriminos->path, '.', 0) - 1);
+    if (tetriminos->valid == FALSE)
+        my_printf("Tetriminos: '%s': error\n", name);
+    else {
+        my_printf("Tetriminos: '%s': size %d*%d, color %d\n%s\n", name,
+        tetriminos->col, tetriminos->row, tetriminos->color,
+        tetriminos->buffer);
+    }
+}
+
+static void print_tetriminos(tetris_t *tetris)
+{
+    tetriminos_t *tmp = tetris->tetriminos;
+
+    while (tmp->next != NULL) {
+        print_this_tetriminos(tmp);
+        tmp = tmp->next;
+    }
+    print_this_tetriminos(tmp);
 }
 
 void print_debug(tetris_t *tetris)
@@ -42,4 +70,5 @@ void print_debug(tetris_t *tetris)
     my_printf("\nLevel: %d", tetris->opt.level);
     my_printf("\nSize: %d*%d\n", tetris->opt.size_row, tetris->opt.size_col);
     my_printf("\nNumber of tetriminos: %d\n", tetris->count_tetriminos);
+    print_tetriminos(tetris);
 }
