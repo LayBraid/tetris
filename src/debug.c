@@ -41,4 +41,5 @@ void print_debug(tetris_t *tetris)
         my_putstr("\nNext: No");
     my_printf("\nLevel: %d", tetris->opt.level);
     my_printf("\nSize: %d*%d\n", tetris->opt.size_row, tetris->opt.size_col);
+    my_printf("\nNumber of tetriminos: %d\n", tetris->count_tetriminos);
 }

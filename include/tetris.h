@@ -11,6 +11,7 @@
     #include <getopt.h>
     #include <curses.h>
     #include "struct.h"
+    #include <stddef.h>
 
     #define KEY_LEFT_DEBUG "KEY_LEFT (260)"
     #define KEY_RIGHT_DEBUG "KEY_RIGHT (261)"

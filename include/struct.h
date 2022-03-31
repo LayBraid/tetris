@@ -12,6 +12,8 @@ typedef struct tetris_game tetris_t;
 
 typedef struct tetriminos_struct {
     char *path;
+    char *buffer;
+    char **map;
     int valid;
     int **design;
     int color;
@@ -47,6 +49,7 @@ struct tetris_game {
     char *operator_argument;
     int *info_operator;
     struct option *long_options;
+    int count_tetriminos;
     function_option function[11];
     option_t opt;
     tetriminos_t *tetriminos;

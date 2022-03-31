@@ -9,6 +9,7 @@
 #include "options.h"
 #include "tetris.h"
 #include "tetriminos.h"
+#include "utils.h"
 
 int game(int ac, char **av)
 {
@@ -17,6 +18,9 @@ int game(int ac, char **av)
     get_arguments(ac, av, tetris);
     open_tetriminos(tetris);
     fill_tetriminos(tetris);
+    tetris->count_tetriminos = count_tetriminos(tetris);
+    if (tetris->count_tetriminos == 0)
+        return 84;
     if (tetris->opt.debug)
         print_debug(tetris);
     if (!tetris->opt.help && !tetris->opt.debug)

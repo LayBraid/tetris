@@ -7,9 +7,30 @@
 
 #include <dirent.h>
 #include <stddef.h>
-#include <printf.h>
 #include "tetriminos.h"
 #include "my.h"
+
+static void sort_files(tetris_t *tetris)
+{
+    tetriminos_t *tmp = tetris->tetriminos;
+    char *save;
+
+    while (tmp->next->next != NULL) {
+        if (my_strcmp(tmp->path, tmp->next->path) > 0) {
+            save = tmp->path;
+            tmp->path = tmp->next->path;
+            tmp->next->path = save;
+            sort_files(tetris);
+        }
+        tmp = tmp->next;
+    }
+    if (my_strcmp(tmp->path, tmp->next->path) > 0) {
+        save = tmp->path;
+        tmp->path = tmp->next->path;
+        tmp->next->path = save;
+        sort_files(tetris);
+    }
+}
 
 static void add_file_tetriminos(tetris_t *tetris, const char *path)
 {
@@ -35,9 +56,18 @@ void open_tetriminos(tetris_t *tetris)
 {
     DIR *dir = opendir("tetriminos");
     struct dirent *dp;
+    char *save;
 
     while ((dp = readdir(dir)) != NULL)
         if (dp->d_name[0] != '.')
             add_file_tetriminos(tetris, dp->d_name);
     closedir(dir);
+
+    if (my_strcmp(tetris->tetriminos->path,
+        tetris->tetriminos->next->path) > 0) {
+        save = tetris->tetriminos->path;
+        tetris->tetriminos->path = tetris->tetriminos->next->path;
+        tetris->tetriminos->next->path = save;
+    }
+    sort_files(tetris);
 }
