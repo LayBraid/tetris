@@ -45,6 +45,8 @@ typedef struct my_option {
 
 struct tetris_game {
     int status;
+    int score;
+    int lines_ok;
     int operator;
     char *operator_argument;
     int *info_operator;

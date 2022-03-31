@@ -25,4 +25,6 @@ int max_line(const char *buffer);
 
 int count_tetriminos(tetris_t *tetris);
 
+char *get_space(int max, int before, int after);
+
 #endif

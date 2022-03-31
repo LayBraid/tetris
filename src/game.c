@@ -7,12 +7,13 @@
 
 #include "tetris.h"
 #include "controls.h"
+#include "print.h"
 
-void update_map(char **map, int lines)
+void update_map(tetris_t *tetris)
 {
     clear();
-    for (int i = 0; i != lines; i++)
-        mvprintw(i, 0, map[i]);
+    for (int i = 0; i < tetris->opt.size_row + 10; i++)
+        print_line(tetris, i);
     refresh();
 }
 
@@ -32,11 +33,9 @@ void launch_game(tetris_t *tetris)
     noecho();
     keypad(stdscr, TRUE);
     while (tetris->status == PLAYING) {
-        //update_map(skb->map, skb->lines);
+        update_map(tetris);
         input_manager(tetris, getch());
-        //check_victory(skb);
-        //check_fail(skb);
     }
-    //update_map(skb->map, skb->lines);
+    update_map(tetris);
     endwin();
 }

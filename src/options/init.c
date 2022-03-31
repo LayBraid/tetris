@@ -21,7 +21,7 @@ void init_values(tetris_t *tetris)
     tetris->opt.key_pause = SPACE;
     tetris->opt.size_row = 25;
     tetris->opt.size_col = 15;
-    tetris->opt.next = FALSE;
+    tetris->opt.next = TRUE;
     tetris->opt.debug = FALSE;
 }
 
