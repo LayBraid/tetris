@@ -10,6 +10,29 @@
 #include "my.h"
 #include "utils.h"
 
+char *get_scoreboard_next(tetris_t *tetris, int line, char *tmp)
+{
+    if (line == 6) {
+        my_strcat_3(&tmp, " Level:");
+        my_strcat_3(&tmp, get_space(16, 6, my_int_len(tetris->opt.level)));
+        my_strcat_3(&tmp, my_itoa(tetris->opt.level));
+        my_strcat_3(&tmp, " |");
+        return tmp;
+    }
+    if (line == 8) {
+        my_strcat_3(&tmp, " Time:");
+        my_strcat_3(&tmp, get_space(16, 5, 6));
+        my_strcat_3(&tmp, "12m31s");
+        my_strcat_3(&tmp, " |");
+        return tmp;
+    }
+    if (line == 4 || line == 7)
+        return "|                  |";
+    if (line == 9)
+        return "\\------------------/";
+    return "                    ";
+}
+
 char *get_scoreboard(tetris_t *tetris, int line)
 {
     char *tmp = "|";
@@ -30,23 +53,5 @@ char *get_scoreboard(tetris_t *tetris, int line)
         my_strcat_3(&tmp, " |");
         return tmp;
     }
-    if (line == 6) {
-        my_strcat_3(&tmp, " Level:");
-        my_strcat_3(&tmp, get_space(16, 6, my_int_len(tetris->opt.level)));
-        my_strcat_3(&tmp, my_itoa(tetris->opt.level));
-        my_strcat_3(&tmp, " |");
-        return tmp;
-    }
-    if (line == 8) {
-        my_strcat_3(&tmp, " Time:");
-        my_strcat_3(&tmp, get_space(16, 5, 6));
-        my_strcat_3(&tmp, "12m31s");
-        my_strcat_3(&tmp, " |");
-        return tmp;
-    }
-    if (line == 4 || line == 7)
-        return "|                  |";
-    if (line == 9)
-        return "\\------------------/";
-    return "                    ";
+    return get_scoreboard_next(tetris, line, tmp);
 }
