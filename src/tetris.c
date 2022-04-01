@@ -23,7 +23,7 @@ int game(int ac, char **av)
     tetris->count_tetriminos = count_tetriminos(tetris);
     if (tetris->count_tetriminos == 0)
         return 84;
-    if (tetris->opt.debug)
+    if (tetris->opt.debug && !tetris->opt.help)
         print_debug(tetris);
     if (!tetris->opt.help && !tetris->opt.debug)
         launch_game(tetris);
