@@ -52,23 +52,23 @@ static void print_tetriminos(tetris_t *tetris)
 void print_debug(tetris_t *tetris)
 {
     my_putstr("Key left: ");
-    print_this(tetris->opt.key_left);
+    print_this(tetris->opt->key_left);
     my_putstr("\nKey right: ");
-    print_this(tetris->opt.key_right);
+    print_this(tetris->opt->key_right);
     my_putstr("\nKey turn: ");
-    print_this(tetris->opt.key_turn);
+    print_this(tetris->opt->key_turn);
     my_putstr("\nKey drop: ");
-    print_this(tetris->opt.key_drop);
+    print_this(tetris->opt->key_drop);
     my_putstr("\nKey quit: ");
-    print_this(tetris->opt.key_quit);
+    print_this(tetris->opt->key_quit);
     my_putstr("\nKey pause: ");
-    print_this(tetris->opt.key_pause);
-    if (tetris->opt.next)
+    print_this(tetris->opt->key_pause);
+    if (tetris->opt->next)
         my_putstr("\nNext: Yes");
     else
         my_putstr("\nNext: No");
-    my_printf("\nLevel: %d", tetris->opt.level);
-    my_printf("\nSize: %d*%d\n", tetris->opt.size_row, tetris->opt.size_col);
+    my_printf("\nLevel: %d", tetris->opt->level);
+    my_printf("\nSize: %d*%d\n", tetris->opt->size_row, tetris->opt->size_col);
     my_printf("\nNumber of tetriminos: %d\n", tetris->count_tetriminos);
     print_tetriminos(tetris);
 }

@@ -14,8 +14,8 @@ char *get_scoreboard_next(tetris_t *tetris, int line, char *tmp)
 {
     if (line == 6) {
         my_strcat_3(&tmp, " Level:");
-        my_strcat_3(&tmp, get_space(16, 6, my_int_len(tetris->opt.level)));
-        my_strcat_3(&tmp, my_itoa(tetris->opt.level));
+        my_strcat_3(&tmp, get_space(16, 6, my_int_len(tetris->opt->level)));
+        my_strcat_3(&tmp, my_itoa(tetris->opt->level));
         my_strcat_3(&tmp, " |");
         return tmp;
     }

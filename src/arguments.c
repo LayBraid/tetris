@@ -64,9 +64,9 @@ void get_arguments(int ac, char **av, tetris_t *tetris)
     tetris->info_operator[1] = 0;
     tetris->info_operator[2] = 0;
     tetris->status = PLAYING;
+    init_values(tetris);
     init_options(tetris);
     init_arguments(tetris);
-    init_values(tetris);
     while (1) {
         tetris->info_operator[1] = optind ? optind : 1;
         tetris->info_operator[2] = 0;

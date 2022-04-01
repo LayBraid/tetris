@@ -50,10 +50,11 @@ struct tetris_game {
     int operator;
     char *operator_argument;
     int *info_operator;
+    int **block;
     struct option *long_options;
     int count_tetriminos;
     function_option function[11];
-    option_t opt;
+    option_t *opt;
     tetriminos_t *tetriminos;
 };
 

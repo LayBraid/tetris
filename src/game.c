@@ -12,7 +12,7 @@
 void update_map(tetris_t *tetris)
 {
     clear();
-    for (int i = 0; i < tetris->opt.size_row + 10; i++)
+    for (int i = 0; i < tetris->opt->size_row + 10; i++)
         print_line(tetris, i);
     refresh();
 }

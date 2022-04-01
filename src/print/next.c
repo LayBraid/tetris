@@ -13,7 +13,7 @@ char *get_next(tetris_t *tetris, int line)
 {
     char *tmp = "|";
 
-    if (tetris->opt.next == FALSE)
+    if (tetris->opt->next == 0)
         return "";
     if (line == 1)
         return "/-next---\\";

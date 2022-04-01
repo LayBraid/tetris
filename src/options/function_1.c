@@ -8,10 +8,11 @@
 #include "options.h"
 #include "my.h"
 #include "utils.h"
+#include "tetris.h"
 
 void print_help(tetris_t *tetris)
 {
-    tetris->opt.help = 1;
+    tetris->opt->help = 1;
     my_putstr("Usage: ./tetris [options]\nOptions:\n  --help               Di"
     "splay this help\n  -L --level={num}     Start Tetris at level num (def: "
     "1)\n  -l --key-left={K}    Move the tetrimino LEFT using the K key (def:"
@@ -28,15 +29,15 @@ void print_help(tetris_t *tetris)
 
 void set_level(tetris_t *tetris)
 {
-    tetris->opt.level = my_atoi(tetris->operator_argument);
+    tetris->opt->level = my_atoi(tetris->operator_argument);
 }
 
 void set_key_left(tetris_t *tetris)
 {
-    tetris->opt.key_left = get_curse_key(tetris->operator_argument);
+    tetris->opt->key_left = get_curse_key(tetris->operator_argument);
 }
 
 void set_key_right(tetris_t *tetris)
 {
-    tetris->opt.key_right = get_curse_key(tetris->operator_argument);
+    tetris->opt->key_right = get_curse_key(tetris->operator_argument);
 }

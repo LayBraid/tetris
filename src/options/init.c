@@ -11,18 +11,19 @@
 
 void init_values(tetris_t *tetris)
 {
-    tetris->opt.help = 0;
-    tetris->opt.level = 1;
-    tetris->opt.key_left = KEY_LEFT;
-    tetris->opt.key_right = KEY_RIGHT;
-    tetris->opt.key_turn = KEY_UP;
-    tetris->opt.key_drop = KEY_DOWN;
-    tetris->opt.key_quit = 'q';
-    tetris->opt.key_pause = SPACE;
-    tetris->opt.size_row = 25;
-    tetris->opt.size_col = 15;
-    tetris->opt.next = TRUE;
-    tetris->opt.debug = FALSE;
+    tetris->opt = malloc(sizeof(option_t));
+    tetris->opt->debug = 0;
+    tetris->opt->help = 0;
+    tetris->opt->level = 1;
+    tetris->opt->key_left = KEY_LEFT;
+    tetris->opt->key_right = KEY_RIGHT;
+    tetris->opt->key_turn = KEY_UP;
+    tetris->opt->key_drop = KEY_DOWN;
+    tetris->opt->key_quit = 'q';
+    tetris->opt->key_pause = SPACE;
+    tetris->opt->size_row = 25;
+    tetris->opt->size_col = 15;
+    tetris->opt->next = 1;
 }
 
 void init_options(tetris_t *tetris)
