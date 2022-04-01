@@ -27,9 +27,7 @@ int game(int ac, char **av)
         return 84;
     if (tetris->opt->debug && !tetris->opt->help)
         print_debug(tetris);
-    if (!tetris->opt->help && !tetris->opt->debug) {
+    if (!tetris->opt->help && !tetris->opt->debug)
         launch_game(tetris);
-        printf("test\n");
-    }
     return 0;
 }

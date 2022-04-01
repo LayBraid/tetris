@@ -26,11 +26,9 @@ char *get_line_map(int max, int before, int after)
     return tmp;
 }
 
-char *get_line_block(tetris_t *tetris, int line)
+void print_color(WINDOW *window, int color, int x, int y)
 {
-    char *tmp = "";
-
-    for (int i = 0; i < tetris->opt->size_col; i++)
-        my_strcat_3(&tmp, my_itoa(tetris->block[line][i]));
-    return tmp;
+    attron(color);
+    mvwaddch(window, y + 1, x + 1, '*');
+    attroff(color);
 }

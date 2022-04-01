@@ -12,5 +12,6 @@
 void print_next(tetris_t *tetris)
 {
     wborder(tetris->next, '|', '|', '-', '-', '/', '\\', '\\', '/');
+    refresh();
     wrefresh(tetris->next);
 }

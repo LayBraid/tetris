@@ -31,4 +31,6 @@ char *get_line_map(int max, int before, int after);
 
 char *get_line_block(tetris_t *tetris, int line);
 
+void print_color(WINDOW *window, int color, int x, int y);
+
 #endif

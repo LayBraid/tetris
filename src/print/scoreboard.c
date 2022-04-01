@@ -13,5 +13,6 @@
 void print_scoreboard(tetris_t *tetris)
 {
     wborder(tetris->scoreboard, '|', '|', '-', '-', '/', '\\', '\\', '/');
+    refresh();
     wrefresh(tetris->scoreboard);
 }

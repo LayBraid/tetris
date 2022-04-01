@@ -15,5 +15,5 @@ void init_block(tetris_t *tetris)
         tetris->block[i] = malloc(sizeof(int) * tetris->opt->size_col);
     for (int i = 0; i < tetris->opt->size_row; i++)
         for (int j = 0; j < tetris->opt->size_col; j++)
-            tetris->block[i][j] = 0;
+            tetris->block[i][j] = -1;
 }
