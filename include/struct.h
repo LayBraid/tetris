@@ -29,6 +29,11 @@ typedef struct tetris_function_option {
     void (* function)(tetris_t *tetris);
 } function_option;
 
+typedef struct control_struct {
+    int input;
+    void (*function)(tetris_t *tetris);
+} control_t;
+
 typedef struct my_option {
     int help;
     int level;
@@ -61,6 +66,7 @@ struct tetris_game {
     WINDOW* scoreboard;
     WINDOW* block_game;
     WINDOW* next;
+    control_t **controls;
 };
 
 #endif

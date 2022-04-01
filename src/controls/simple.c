@@ -6,6 +6,7 @@
 */
 
 #include "controls.h"
+#include "tetris.h"
 
 void quit_game(tetris_t *tetris)
 {

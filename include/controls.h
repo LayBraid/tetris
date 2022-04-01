@@ -8,17 +8,12 @@
 #ifndef TETRIS_CONTROLS_H
     #define TETRIS_CONTROLS_H
 
-    #include "tetris.h"
+    #include "struct.h"
 
-    #define NB_CONTROLS 7
+    #define NB_CONTROLS 6
     #define SPACE 32
-    #define ENTER 10
-    #define ESCAPE 27
 
-typedef struct control_struct {
-    int input;
-    void (*function)(tetris_t *tetris);
-} control_t;
+void init_controls(tetris_t *tetris);
 
 void quit_game(tetris_t *tetris);
 

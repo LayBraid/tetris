@@ -25,11 +25,11 @@ void update_map(tetris_t *tetris)
 
 void input_manager(tetris_t *tetris, int input)
 {
-    //for (int i = 0; i < NB_CONTROLS; i++)
-        //if (input == skb->controls[i]->input) {
-        //    skb->controls[i]->function(skb);
-        //    break;
-        //}
+    for (int i = 0; i < NB_CONTROLS; i++)
+        if (input == tetris->controls[i]->input) {
+            tetris->controls[i]->function(tetris);
+            break;
+        }
 }
 
 void launch_game(tetris_t *tetris)
@@ -37,6 +37,7 @@ void launch_game(tetris_t *tetris)
     initscr();
     noecho();
     keypad(stdscr, TRUE);
+    init_controls(tetris);
     tetris->scoreboard = newwin(9, 20, 5, 0);
     tetris->block_game = newwin((tetris->opt->size_row + 2),
     (tetris->opt->size_col + 2), 0, 25);
