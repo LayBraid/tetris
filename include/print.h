@@ -10,10 +10,10 @@
 
     #include "struct.h"
 
-char *get_scoreboard(tetris_t *tetris, int line);
+void print_next(tetris_t *tetris);
 
-char *get_next(tetris_t *tetris, int line);
+void print_scoreboard(tetris_t *tetris);
 
-void print_line(tetris_t *tetris, int line);
+void print_map(tetris_t *tetris);
 
 #endif

@@ -27,4 +27,8 @@ int count_tetriminos(tetris_t *tetris);
 
 char *get_space(int max, int before, int after);
 
+char *get_line_map(int max, int before, int after);
+
+char *get_line_block(tetris_t *tetris, int line);
+
 #endif

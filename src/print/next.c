@@ -9,17 +9,8 @@
 #include "tetris.h"
 #include "my.h"
 
-char *get_next(tetris_t *tetris, int line)
+void print_next(tetris_t *tetris)
 {
-    char *tmp = "|";
-
-    if (tetris->opt->next == 0)
-        return "";
-    if (line == 1)
-        return "/-next---\\";
-    if (line > 1 && line < 6)
-        return "|        |";
-    if (line == 6)
-        return "\\--------/";
-    return "";
+    wborder(tetris->next, '|', '|', '-', '-', '/', '\\', '\\', '/');
+    wrefresh(tetris->next);
 }

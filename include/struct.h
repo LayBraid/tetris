@@ -8,6 +8,8 @@
 #ifndef TETRIS_STRUCT_H
     #define TETRIS_STRUCT_H
 
+    #include "ncurses.h"
+
 typedef struct tetris_game tetris_t;
 
 typedef struct tetriminos_struct {
@@ -56,6 +58,9 @@ struct tetris_game {
     function_option function[11];
     option_t *opt;
     tetriminos_t *tetriminos;
+    WINDOW* scoreboard;
+    WINDOW* block_game;
+    WINDOW* next;
 };
 
 #endif

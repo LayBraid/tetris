@@ -16,3 +16,21 @@ char *get_space(int max, int before, int after)
         tmp = my_strcat_c(tmp, ' ');
     return tmp;
 }
+
+char *get_line_map(int max, int before, int after)
+{
+    char *tmp = "";
+
+    for (int i = 0; i < max - before - after; i++)
+        tmp = my_strcat_c(tmp, '-');
+    return tmp;
+}
+
+char *get_line_block(tetris_t *tetris, int line)
+{
+    char *tmp = "";
+
+    for (int i = 0; i < tetris->opt->size_col; i++)
+        my_strcat_3(&tmp, my_itoa(tetris->block[line][i]));
+    return tmp;
+}

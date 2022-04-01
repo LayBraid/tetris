@@ -9,7 +9,6 @@
     #define TETRIS_TETRIS_H
 
     #include <getopt.h>
-    #include <curses.h>
     #include "struct.h"
     #include <stddef.h>
 
