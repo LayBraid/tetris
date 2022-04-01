@@ -18,6 +18,7 @@ int game(int ac, char **av)
     tetris->tetriminos = NULL;
     tetris->score = 0;
     tetris->lines_ok = 0;
+
     get_arguments(ac, av, tetris);
     open_tetriminos(tetris);
     fill_tetriminos(tetris);
