@@ -30,6 +30,10 @@ static void get_design(tetriminos_t *tetriminos)
 
 static void fill_this(tetriminos_t *tetriminos, char *buffer)
 {
+    if (my_strcmp(buffer, "error") == 0) {
+        tetriminos->valid = FALSE;
+        return;
+    }
     tetriminos->col = my_atoi(extract_between_limits(buffer, 0,
     get_it_char(buffer, ' ', 0)));
     tetriminos->row = my_atoi(extract_between_limits(buffer,

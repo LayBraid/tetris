@@ -26,6 +26,8 @@ static void update_map(tetris_t *tetris)
 
 static void input_manager(tetris_t *tetris, int input)
 {
+    if (input != tetris->opt->key_drop)
+        drop_tetriminos(tetris);
     for (int i = 0; i < NB_CONTROLS; i++)
         if (input == tetris->controls[i]->input) {
             tetris->controls[i]->function(tetris);
@@ -46,7 +48,7 @@ void launch_game(tetris_t *tetris)
     tetris->next = newwin(10, 10, 0, tetris->opt->size_col + 30);
     while (tetris->status == PLAYING) {
         update_map(tetris);
-        timeout(100);
+        timeout(200);
         input_manager(tetris, getch());
     }
     update_map(tetris);

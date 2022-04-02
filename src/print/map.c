@@ -22,8 +22,11 @@ static void print_next_check(tetris_t *tetris, int i, int j)
         mvwprintw(tetris->block_game, i - 9 + tetris->next_tetriminos->y, j +
         1 + tetris->next_tetriminos->x, "*");
     else
-        mvwprintw(tetris->block_game, i - 9 + tetris->next_tetriminos->y, j +
-        1 + tetris->next_tetriminos->x, " ");
+        if (tetris->block[i][j] == 0)
+            mvwprintw(tetris->block_game, i - 9 + tetris->next_tetriminos->y, j +
+            1 + tetris->next_tetriminos->x, " ");
+        else
+            print_color(tetris->block_game, tetris->block[i][j] - 10, j, i - 9);
 }
 
 void print_map(tetris_t *tetris)

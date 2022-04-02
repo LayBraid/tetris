@@ -9,19 +9,19 @@ SRC = $(wildcard src/*.c) \
 	  $(wildcard src/utils/*.c) \
 	  $(wildcard src/options/*.c) \
 	  $(wildcard src/controls/*.c) \
-	  $(wildcard src/block/*.c) \
 	  $(wildcard src/print/*.c) \
+	  $(wildcard src/block/*.c) \
 	  $(wildcard src/tetriminos/*.c) \
 
 OBJ = $(SRC:.c=.o)
 
 NAME = tetris
 SRC_LIB = -Llib -lmy
-CFLAGS += -Wextra -Iinclude -g3
+CFLAGS += -Iinclude
 
 $(NAME): $(OBJ)
 	cd lib/my && make
-	gcc $(OBJ) $(SRC_LIB) -o./$(NAME) -g3 -lncurses
+	gcc $(OBJ) $(SRC_LIB) -o./$(NAME) -lncurses
 
 all: $(NAME)
 

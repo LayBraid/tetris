@@ -21,8 +21,8 @@ void init_values(tetris_t *tetris)
     tetris->opt->key_drop = KEY_DOWN;
     tetris->opt->key_quit = 'q';
     tetris->opt->key_pause = SPACE;
-    tetris->opt->size_row = 25;
-    tetris->opt->size_col = 15;
+    tetris->opt->size_row = 20;
+    tetris->opt->size_col = 10;
     tetris->opt->next = 1;
 }
 

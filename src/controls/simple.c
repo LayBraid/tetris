@@ -8,6 +8,7 @@
 #include "controls.h"
 #include "tetris.h"
 #include "utils.h"
+#include "tetriminos.h"
 
 void quit_game(tetris_t *tetris)
 {
@@ -17,7 +18,7 @@ void quit_game(tetris_t *tetris)
 void drop_tetriminos(tetris_t *tetris)
 {
     if (tetris->next_tetriminos->y < tetris->opt->size_row +
-        (10 - tetris->next_tetriminos->row))
+        (10 - tetris->next_tetriminos->row) && can_drop(tetris))
         tetris->next_tetriminos->y++;
 }
 

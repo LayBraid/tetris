@@ -53,12 +53,14 @@ static void add_file_tetriminos(tetris_t *tetris, const char *path)
     }
 }
 
-void open_tetriminos(tetris_t *tetris)
+int open_tetriminos(tetris_t *tetris)
 {
     DIR *dir = opendir("tetriminos");
     struct dirent *dp;
     char *save;
 
+    if (dir == NULL)
+        return 84;
     while ((dp = readdir(dir)) != NULL)
         if (dp->d_name[0] != '.')
             add_file_tetriminos(tetris, dp->d_name);
@@ -71,4 +73,5 @@ void open_tetriminos(tetris_t *tetris)
         tetris->tetriminos->next->path = save;
     }
     sort_files(tetris);
+    return 0;
 }

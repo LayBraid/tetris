@@ -21,7 +21,8 @@ int game(int ac, char **av)
     tetris->binary_name = av[0];
 
     get_arguments(ac, av, tetris);
-    open_tetriminos(tetris);
+    if (open_tetriminos(tetris) == 84)
+        return 84;
     fill_tetriminos(tetris);
     init_block(tetris);
     tetris->count_tetriminos = count_tetriminos(tetris);

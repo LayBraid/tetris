@@ -10,10 +10,14 @@
 
     #include "struct.h"
 
-void open_tetriminos(tetris_t *tetris);
+int open_tetriminos(tetris_t *tetris);
 
 void fill_tetriminos(tetris_t *tetris);
 
 void get_next_tetriminos(tetris_t *tetris);
+
+void put_tetriminos(tetris_t *tetris);
+
+int can_drop(tetris_t *tetris);
 
 #endif
