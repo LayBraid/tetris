@@ -23,7 +23,7 @@ void init_controls(tetris_t *tetris)
     tetris->controls[0] = setup_control(tetris->opt->key_quit, quit_game);
     tetris->controls[1] = setup_control(tetris->opt->key_pause, quit_game);
     tetris->controls[2] = setup_control(tetris->opt->key_turn, quit_game);
-    tetris->controls[3] = setup_control(tetris->opt->key_drop, quit_game);
+    tetris->controls[3] = setup_control(tetris->opt->key_drop, drop_tetriminos);
     tetris->controls[4] = setup_control(tetris->opt->key_left, quit_game);
     tetris->controls[5] = setup_control(tetris->opt->key_right, quit_game);
 }

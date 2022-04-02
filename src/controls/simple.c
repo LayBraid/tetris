@@ -12,3 +12,8 @@ void quit_game(tetris_t *tetris)
 {
     tetris->status = LOOSE;
 }
+
+void drop_tetriminos(tetris_t *tetris)
+{
+    tetris->next_tetriminos->y++;
+}

@@ -50,11 +50,21 @@ typedef struct my_option {
     int debug;
 } option_t;
 
+typedef struct tetriminos_info {
+    int **design;
+    int color;
+    int x;
+    int y;
+    int row;
+    int col;
+} info_t;
+
 struct tetris_game {
     int status;
     int score;
     int lines_ok;
     int operator;
+    char *binary_name;
     char *operator_argument;
     int *info_operator;
     int **block;
@@ -67,6 +77,8 @@ struct tetris_game {
     WINDOW* block_game;
     WINDOW* next;
     control_t **controls;
+    info_t *spawn_tetriminos;
+    info_t *next_tetriminos;
 };
 
 #endif

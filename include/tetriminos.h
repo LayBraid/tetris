@@ -14,4 +14,6 @@ void open_tetriminos(tetris_t *tetris);
 
 void fill_tetriminos(tetris_t *tetris);
 
+void get_next_tetriminos(tetris_t *tetris);
+
 #endif

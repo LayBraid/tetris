@@ -6,12 +6,17 @@
 */
 
 #include "my.h"
+#include "time.h"
 
 int my_rand(int i, int j)
 {
-    int random_value = rand();
-    int r = random_value % j;
-    if (r < i)
-        r += i;
-    return r;
+    int n = i - j + 1;
+    int remainder = RAND_MAX % n;
+    int x;
+
+    srand(time(NULL));
+    x = rand();
+    while (x >= RAND_MAX - remainder)
+        x = rand();
+    return i + x % n;
 }

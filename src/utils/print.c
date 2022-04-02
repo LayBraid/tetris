@@ -29,6 +29,6 @@ char *get_line_map(int max, int before, int after)
 void print_color(WINDOW *window, int color, int x, int y)
 {
     attron(color);
-    mvwaddch(window, y + 1, x + 1, '*');
+    mvwaddch(window, y - 9, x + 1, '*');
     attroff(color);
 }

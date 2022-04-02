@@ -17,4 +17,6 @@ void init_controls(tetris_t *tetris);
 
 void quit_game(tetris_t *tetris);
 
+void drop_tetriminos(tetris_t *tetris);
+
 #endif

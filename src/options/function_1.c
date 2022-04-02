@@ -13,7 +13,9 @@
 void print_help(tetris_t *tetris)
 {
     tetris->opt->help = 1;
-    my_putstr("Usage: ./tetris [options]\nOptions:\n  --help               Di"
+    my_putstr("Usage: ");
+    my_putstr(tetris->binary_name);
+    my_putstr(" [options]\nOptions:\n  --help               Di"
     "splay this help\n  -L --level={num}     Start Tetris at level num (def: "
     "1)\n  -l --key-left={K}    Move the tetrimino LEFT using the K key (def:"
     " left arrow)\n  -r --key-right={K}   Move the tetrimino RIGHT using the K"

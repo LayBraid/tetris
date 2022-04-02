@@ -8,11 +8,12 @@
 #include "tetris.h"
 #include "controls.h"
 #include "print.h"
+#include "tetriminos.h"
 
 void update_map(tetris_t *tetris)
 {
     clear();
-    printw("TETRIS");
+    printw("TETRIS GAME");
     refresh();
     print_scoreboard(tetris);
     refresh();
@@ -34,6 +35,7 @@ void input_manager(tetris_t *tetris, int input)
 
 void launch_game(tetris_t *tetris)
 {
+    get_next_tetriminos(tetris);
     initscr();
     noecho();
     keypad(stdscr, TRUE);
@@ -44,6 +46,8 @@ void launch_game(tetris_t *tetris)
     tetris->next = newwin(10, 10, 0, tetris->opt->size_col + 30);
     while (tetris->status == PLAYING) {
         update_map(tetris);
+        tetris->opt->level++;
+        timeout(100);
         input_manager(tetris, getch());
     }
     update_map(tetris);
