@@ -9,6 +9,7 @@
 #include <stddef.h>
 #include "tetriminos.h"
 #include "my.h"
+#include "utils.h"
 
 static void sort_files(tetris_t *tetris)
 {
@@ -35,10 +36,10 @@ static void sort_files(tetris_t *tetris)
 static void add_file_tetriminos(tetris_t *tetris, const char *path)
 {
     tetriminos_t *tmp = tetris->tetriminos;
-    tetriminos_t *new = malloc(sizeof(tetriminos_t));
+    tetriminos_t *new = get_memory(sizeof(tetriminos_t));
 
     if (tetris->tetriminos == NULL) {
-        tetris->tetriminos = malloc(sizeof(tetriminos_t));
+        tetris->tetriminos = get_memory(sizeof(tetriminos_t));
         tetris->tetriminos->path = "tetriminos/";
         my_strcat_3(&tetris->tetriminos->path, path);
         tetris->tetriminos->next = NULL;

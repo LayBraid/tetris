@@ -19,9 +19,11 @@ static void print_this(tetris_t *tetris, int i, int j)
 static void print_next_check(tetris_t *tetris, int i, int j)
 {
     if (tetris->next_tetriminos->design[i][j] != 0)
-        mvwprintw(tetris->block_game, i - 9 + tetris->next_tetriminos->y, j + 1 + tetris->next_tetriminos->x, "^");
+        mvwprintw(tetris->block_game, i - 9 + tetris->next_tetriminos->y, j +
+        1 + tetris->next_tetriminos->x, "*");
     else
-        mvwprintw(tetris->block_game, i - 9 + tetris->next_tetriminos->y, j + 1 + tetris->next_tetriminos->x, " ");
+        mvwprintw(tetris->block_game, i - 9 + tetris->next_tetriminos->y, j +
+        1 + tetris->next_tetriminos->x, " ");
 }
 
 void print_map(tetris_t *tetris)

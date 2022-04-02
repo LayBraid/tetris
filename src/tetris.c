@@ -14,7 +14,7 @@
 
 int game(int ac, char **av)
 {
-    tetris_t *tetris = malloc(sizeof(tetris_t));
+    tetris_t *tetris = get_memory(sizeof(tetris_t));
     tetris->tetriminos = NULL;
     tetris->score = 0;
     tetris->lines_ok = 0;

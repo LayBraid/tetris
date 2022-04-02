@@ -7,6 +7,7 @@
 
 #include "controls.h"
 #include "tetris.h"
+#include "utils.h"
 
 void quit_game(tetris_t *tetris)
 {
@@ -31,4 +32,12 @@ void left_tetriminos(tetris_t *tetris)
 {
     if (tetris->next_tetriminos->x > 0)
         tetris->next_tetriminos->x--;
+}
+
+void rotate_tetriminos(tetris_t *tetris)
+{
+    tetris->lines_ok++;
+    rotate_matrix(tetris->next_tetriminos->matrix,
+    tetris->next_tetriminos->matrix_size);
+    update_design(tetris->next_tetriminos);
 }

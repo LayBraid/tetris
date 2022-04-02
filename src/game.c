@@ -10,7 +10,7 @@
 #include "print.h"
 #include "tetriminos.h"
 
-void update_map(tetris_t *tetris)
+static void update_map(tetris_t *tetris)
 {
     clear();
     printw("TETRIS GAME");
@@ -24,7 +24,7 @@ void update_map(tetris_t *tetris)
     refresh();
 }
 
-void input_manager(tetris_t *tetris, int input)
+static void input_manager(tetris_t *tetris, int input)
 {
     for (int i = 0; i < NB_CONTROLS; i++)
         if (input == tetris->controls[i]->input) {
@@ -46,7 +46,6 @@ void launch_game(tetris_t *tetris)
     tetris->next = newwin(10, 10, 0, tetris->opt->size_col + 30);
     while (tetris->status == PLAYING) {
         update_map(tetris);
-        tetris->opt->level++;
         timeout(100);
         input_manager(tetris, getch());
     }

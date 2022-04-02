@@ -14,9 +14,9 @@ static void get_design(tetriminos_t *tetriminos)
 {
     int pos[2] = {0};
 
-    tetriminos->design = malloc(sizeof(int *) * tetriminos->row);
+    tetriminos->design = get_memory(sizeof(int *) * tetriminos->row);
     for (int i = 0; i < tetriminos->row; i++)
-        tetriminos->design[i] = malloc(sizeof(int) * (tetriminos->col));
+        tetriminos->design[i] = get_memory(sizeof(int) * (tetriminos->col));
     for (int i = 0; tetriminos->buffer[i] != '\0'; i++, pos[0]++) {
         if (tetriminos->buffer[i] == '\n') {
             pos[1] ++;
