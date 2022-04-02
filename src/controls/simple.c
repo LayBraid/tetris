@@ -15,5 +15,20 @@ void quit_game(tetris_t *tetris)
 
 void drop_tetriminos(tetris_t *tetris)
 {
-    tetris->next_tetriminos->y++;
+    if (tetris->next_tetriminos->y < tetris->opt->size_row +
+        (10 - tetris->next_tetriminos->row))
+        tetris->next_tetriminos->y++;
+}
+
+void right_tetriminos(tetris_t *tetris)
+{
+    if (tetris->next_tetriminos->x < tetris->opt->size_col -
+        tetris->next_tetriminos->col)
+        tetris->next_tetriminos->x++;
+}
+
+void left_tetriminos(tetris_t *tetris)
+{
+    if (tetris->next_tetriminos->x > 0)
+        tetris->next_tetriminos->x--;
 }

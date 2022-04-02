@@ -19,4 +19,8 @@ void quit_game(tetris_t *tetris);
 
 void drop_tetriminos(tetris_t *tetris);
 
+void right_tetriminos(tetris_t *tetris);
+
+void left_tetriminos(tetris_t *tetris);
+
 #endif
