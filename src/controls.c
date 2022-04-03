@@ -10,7 +10,7 @@
 
 control_t *setup_control(int input, void (* function)(tetris_t *tetris))
 {
-    control_t *tmp = get_memory(sizeof(control_t));
+    control_t *tmp = malloc(sizeof(control_t));
 
     tmp->input = input;
     tmp->function = function;
@@ -19,7 +19,7 @@ control_t *setup_control(int input, void (* function)(tetris_t *tetris))
 
 void init_controls(tetris_t *tetris)
 {
-    tetris->controls = get_memory(sizeof(control_t *) * NB_CONTROLS);
+    tetris->controls = malloc(sizeof(control_t *) * NB_CONTROLS);
     tetris->controls[0] = setup_control(tetris->opt->key_quit, quit_game);
     tetris->controls[1] = setup_control(tetris->opt->key_pause, quit_game);
     tetris->controls[2] = setup_control(tetris->opt->key_turn,

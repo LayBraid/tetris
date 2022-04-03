@@ -14,9 +14,9 @@ static void get_design(tetriminos_t *tetriminos)
 {
     int pos[2] = {0};
 
-    tetriminos->design = get_memory(sizeof(int *) * tetriminos->row);
+    tetriminos->design = malloc(sizeof(int *) * tetriminos->row);
     for (int i = 0; i < tetriminos->row; i++)
-        tetriminos->design[i] = get_memory(sizeof(int) * (tetriminos->col));
+        tetriminos->design[i] = malloc(sizeof(int) * (tetriminos->col));
     for (int i = 0; tetriminos->buffer[i] != '\0'; i++, pos[0]++) {
         if (tetriminos->buffer[i] == '\n') {
             pos[1] ++;
@@ -36,6 +36,13 @@ static int check_contains(char *buffer)
     return 1;
 }
 
+static int check_other(tetriminos_t *tetriminos, char *buffer)
+{
+    if (max_length_line(buffer) > tetriminos->col)
+        return 84;
+    return 1;
+}
+
 static void fill_this(tetriminos_t *tetriminos, char *buffer)
 {
     if (my_strcmp(buffer, "error") == 0 || check_contains(buffer) == 84) {
@@ -50,7 +57,7 @@ static void fill_this(tetriminos_t *tetriminos, char *buffer)
     get_it_char(buffer, ' ', 1), get_it_char(buffer, '\n', 0)));
     tetriminos->buffer = extract_between_limits(buffer,
     get_it_char(buffer, '\n', 0) + 1,my_strlen(buffer) - 2);
-    if (tetriminos->row < 1 && tetriminos->col < 1) {
+    if ((tetriminos->row < 1 && tetriminos->col < 1)) {
         tetriminos->valid = FALSE;
         return;
     }

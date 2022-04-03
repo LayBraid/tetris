@@ -79,9 +79,9 @@ void update_design(info_t *next)
     next->row = next->matrix_size - info[1] - info[0];
     next->col = next->matrix_size - info[3] - info[2];
     next->design = NULL;
-    next->design = get_memory(sizeof(int *) * next->row);
+    next->design = malloc(sizeof(int *) * next->row);
     for (int i = 0; i < next->row; i++)
-        next->design[i] = get_memory(sizeof(int) * next->col);
+        next->design[i] = malloc(sizeof(int) * next->col);
     for (int i = 0; i < next->row; i++)
         for (int j = 0; j < next->col; j++)
             next->design[i][j] = 0;

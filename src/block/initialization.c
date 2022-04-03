@@ -10,9 +10,9 @@
 
 void init_block(tetris_t *tetris)
 {
-    tetris->block = get_memory(sizeof(int *) * (tetris->opt->size_row + 10));
+    tetris->block = malloc(sizeof(int *) * (tetris->opt->size_row + 10));
     for (int i = 0; i < (tetris->opt->size_row + 10); i++)
-        tetris->block[i] = get_memory(sizeof(int) * tetris->opt->size_col);
+        tetris->block[i] = malloc(sizeof(int) * tetris->opt->size_col);
     for (int i = 0; i < (tetris->opt->size_row + 10); i++)
         for (int j = 0; j < tetris->opt->size_col; j++)
             tetris->block[i][j] = 0;

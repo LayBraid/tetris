@@ -60,7 +60,7 @@ void get_value(tetris_t *tetris)
 
 void get_arguments(int ac, char **av, tetris_t *tetris)
 {
-    tetris->info_operator = get_memory(sizeof(int) * 3);
+    tetris->info_operator = malloc(sizeof(int) * 3);
     tetris->info_operator[0] = 0;
     tetris->info_operator[1] = 0;
     tetris->info_operator[2] = 0;

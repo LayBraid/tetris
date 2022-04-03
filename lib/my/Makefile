@@ -13,7 +13,6 @@ SRC = my_printf.c \
 	  my_printf_utils_5.c \
 	  my_strlen.c \
 	  my_str_contains_c.c \
-	  memory.c \
 	  my_strcat_c.c \
 	  my_strcat.c \
 	  my_strcpy.c \

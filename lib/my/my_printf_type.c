@@ -9,7 +9,7 @@
 
 flags *put_type(char c, void (*function)(char *str, va_list param, int i))
 {
-    flags *put = get_memory(sizeof(flags));
+    flags *put = malloc(sizeof(flags));
     put->flag = c;
     put->function = function;
     return put;
@@ -63,12 +63,12 @@ void set_flags_next(all_flags *all)
 
 void set_flags(all_flags *all)
 {
-    all->simple = get_memory(sizeof(flags *) * 12);
-    all->point = get_memory(sizeof(flags *) * 8);
-    all->add = get_memory(sizeof(flags *) * 3);
-    all->space = get_memory(sizeof(flags *) * 3);
-    all->h = get_memory(sizeof(flags *) * 9);
-    all->sub = get_memory(sizeof(flags *) * 3);
+    all->simple = malloc(sizeof(flags *) * 12);
+    all->point = malloc(sizeof(flags *) * 8);
+    all->add = malloc(sizeof(flags *) * 3);
+    all->space = malloc(sizeof(flags *) * 3);
+    all->h = malloc(sizeof(flags *) * 9);
+    all->sub = malloc(sizeof(flags *) * 3);
     all->simple[0] = put_type('s', my_printf_string);
     all->simple[1] = put_type('c', my_printf_char);
     all->simple[2] = put_type('S', my_printf_string_octal);
@@ -78,7 +78,7 @@ void set_flags(all_flags *all)
 
 all_flags *get_all_flags(void)
 {
-    all_flags *flags = get_memory(sizeof(all_flags));
+    all_flags *flags = malloc(sizeof(all_flags));
     set_flags(flags);
     return flags;
 }

@@ -19,7 +19,7 @@ char *get_in_buffer(char *path)
 
     if (stat(path, &buf) == -1)
         return "error";
-    buffer = get_memory(sizeof(char) * (buf.st_size + 1));
+    buffer = malloc(sizeof(char) * (buf.st_size + 1));
     fd = open(path, O_RDONLY);
     if (fd == -1)
         return "error";
@@ -57,7 +57,7 @@ int max_line(const char *buffer)
 char *extract_between_limits(char const *exp, int s1, int s2)
 {
     int length = s2 - s1;
-    char *result = get_memory(sizeof(char) * (length + 2));
+    char *result = malloc(sizeof(char) * (length + 2));
 
     for (int index = 0; index <= length; ++index)
         result[index] = exp[index + s1];

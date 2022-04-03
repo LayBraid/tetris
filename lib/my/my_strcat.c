@@ -11,7 +11,7 @@ char *my_strcat(char *dest, char const *src)
 {
     int i;
     int lenght = my_strlen(dest);
-    char *tmp = get_memory(sizeof(char) * (lenght + my_strlen(src) + 1));
+    char *tmp = malloc(sizeof(char) * (lenght + my_strlen(src) + 1));
 
     for (int j = 0; j < dest[j] != '\0'; ++j)
         tmp[j] = dest[j];
