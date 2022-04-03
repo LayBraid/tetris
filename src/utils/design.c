@@ -6,6 +6,7 @@
 */
 
 #include "utils.h"
+#include "my.h"
 
 static int check_horizon(int size, const int *line)
 {
@@ -77,6 +78,7 @@ void update_design(info_t *next)
     update_vertical(next, info);
     next->row = next->matrix_size - info[1] - info[0];
     next->col = next->matrix_size - info[3] - info[2];
+    next->design = NULL;
     next->design = get_memory(sizeof(int *) * next->row);
     for (int i = 0; i < next->row; i++)
         next->design[i] = get_memory(sizeof(int) * next->col);

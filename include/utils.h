@@ -11,11 +11,6 @@
     #include "struct.h"
     #include "stddef.h"
 
-typedef struct memory_struct {
-    void *address;
-    struct memory_struct *next;
-} memory_t;
-
 char *get_in_buffer(char *path);
 
 char *extract_between_limits(char const *exp, int s1, int s2);
@@ -37,10 +32,6 @@ char *get_line_map(int max, int before, int after);
 char *get_line_block(tetris_t *tetris, int line);
 
 void print_color(WINDOW *window, int color, int x, int y);
-
-static void del_memory(void);
-
-void *get_memory(size_t size);
 
 void rotate_matrix(int **matrix, int size);
 

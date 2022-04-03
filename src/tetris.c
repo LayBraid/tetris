@@ -5,12 +5,12 @@
 ** No file there , just an epitech header example
 */
 
-#include "my.h"
 #include "options.h"
 #include "tetris.h"
 #include "tetriminos.h"
 #include "utils.h"
 #include "game_blocks.h"
+#include "my.h"
 
 int game(int ac, char **av)
 {

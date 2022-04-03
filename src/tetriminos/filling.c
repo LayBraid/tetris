@@ -28,9 +28,17 @@ static void get_design(tetriminos_t *tetriminos)
     }
 }
 
+static int check_contains(char *buffer)
+{
+    for (int i = 0; buffer[i] != '\0'; i++)
+        if (!my_str_contains_c(buffer[i], " \n0123456789*"))
+            return 84;
+    return 1;
+}
+
 static void fill_this(tetriminos_t *tetriminos, char *buffer)
 {
-    if (my_strcmp(buffer, "error") == 0) {
+    if (my_strcmp(buffer, "error") == 0 || check_contains(buffer) == 84) {
         tetriminos->valid = FALSE;
         return;
     }

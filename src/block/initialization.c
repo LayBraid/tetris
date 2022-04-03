@@ -6,7 +6,7 @@
 */
 
 #include "game_blocks.h"
-#include "utils.h"
+#include "my.h"
 
 void init_block(tetris_t *tetris)
 {

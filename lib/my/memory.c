@@ -5,7 +5,6 @@
 ** No file there , just an epitech header example
 */
 
-#include "utils.h"
 #include "my.h"
 
 static memory_t *get_node(void *new)

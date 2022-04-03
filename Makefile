@@ -21,7 +21,7 @@ CFLAGS += -Iinclude
 
 $(NAME): $(OBJ)
 	cd lib/my && make
-	gcc $(OBJ) $(SRC_LIB) -o./$(NAME) -lncurses
+	gcc $(OBJ) $(SRC_LIB) -o./$(NAME) -g -lncurses
 
 all: $(NAME)
 

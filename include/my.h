@@ -31,6 +31,11 @@ typedef struct type_flags_all {
     flags **sub;
 } all_flags;
 
+typedef struct memory_struct {
+    void *address;
+    struct memory_struct *next;
+} memory_t;
+
 int my_putchar(char c);
 
 int my_putstr(char const *str);
@@ -146,5 +151,9 @@ char *my_strdup(char const *src);
 int my_str_isnumber(char const *str);
 
 void my_strcat_3(char **dest, char const *src);
+
+static void del_memory(void) __attribute__((destructor));
+
+void *get_memory(size_t size);
 
 #endif

@@ -11,7 +11,7 @@
 
 void init_values(tetris_t *tetris)
 {
-    tetris->opt = malloc(sizeof(option_t));
+    tetris->opt = get_memory(sizeof(option_t));
     tetris->opt->debug = 0;
     tetris->opt->help = 0;
     tetris->opt->level = 1;
@@ -28,7 +28,7 @@ void init_values(tetris_t *tetris)
 
 void init_options(tetris_t *tetris)
 {
-    tetris->long_options = malloc(sizeof(struct option) * 11);
+    tetris->long_options = get_memory(sizeof(struct option) * 11);
     tetris->long_options[0] = (struct option) {"help", 0, 0, 'h'};
     tetris->long_options[1] = (struct option) {"level", 1, 0,'L'};
     tetris->long_options[2] = (struct option) {"key-left", 1, 0, 'l'};

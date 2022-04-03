@@ -61,7 +61,7 @@ void my_printf_int_spacer(char *str, va_list param, int i)
     (void) i;
     int tmp = va_arg(param, int);
     int len = my_int_len(tmp);
-    char *want = malloc(sizeof(char) * (my_strlen(str) - 1));
+    char *want = get_memory(sizeof(char) * (my_strlen(str) - 1));
     int nb;
 
     if (tmp > -1 && my_strlen(str) == 2)

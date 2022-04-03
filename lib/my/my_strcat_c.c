@@ -12,7 +12,7 @@ char *my_strcat_c(char *dest, char const src)
     int i = my_strlen(dest);
 
     char *returned;
-    returned = malloc(sizeof(char) * (i + 2));
+    returned = get_memory(sizeof(char) * (i + 2));
     returned = my_strcpy(returned, dest);
     returned[i] = src;
     returned[i + 1] = '\0';
