@@ -40,7 +40,9 @@ static void input_manager(tetris_t *tetris, int input)
 
 void launch_game(tetris_t *tetris)
 {
-    get_next_tetriminos(tetris);
+    get_next_display(tetris);
+    set_next_tetriminos(tetris);
+    get_next_display(tetris);
     initscr();
     noecho();
     keypad(stdscr, TRUE);
@@ -49,17 +51,17 @@ void launch_game(tetris_t *tetris)
     tetris->block_game = newwin((tetris->opt->size_row + 2),
     (tetris->opt->size_col + 2), 0, 25);
     tetris->next = newwin(10, 10, 0, tetris->opt->size_col + 30);
-    while (tetris->status != LOOSE) {
+    while (tetris->status == PLAYING || tetris->status == PAUSE) {
         timeout(200);
         if (tetris->status == PAUSE) {
             input_manager(tetris, getch());
             continue;
-        } else {
-            update_map(tetris);
-            input_manager(tetris, getch());
-            check_full_line(tetris);
         }
+        update_map(tetris);
+        input_manager(tetris, getch());
+        check_full_line(tetris);
     }
     update_map(tetris);
     endwin();
+    printf("%d\n", tetris->status);
 }

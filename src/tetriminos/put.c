@@ -10,7 +10,7 @@
 
 static void check_loose(tetris_t *tetris, int i)
 {
-    if (tetris->next_tetriminos->y + i <= 10)
+    if (tetris->next_tetriminos->y + i < 10)
         tetris->status = LOOSE;
 }
 
@@ -27,5 +27,6 @@ void put_tetriminos(tetris_t *tetris)
             [tetris->next_tetriminos->x + j]);
         }
     }
-    get_next_tetriminos(tetris);
+    set_next_tetriminos(tetris);
+    get_next_display(tetris);
 }

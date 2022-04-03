@@ -78,8 +78,8 @@ struct tetris_game {
     WINDOW* block_game;
     WINDOW* next;
     control_t **controls;
-    info_t *spawn_tetriminos;
     info_t *next_tetriminos;
+    info_t *next_display;
 };
 
 #endif

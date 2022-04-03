@@ -10,11 +10,14 @@
 static int check_line(tetris_t *tetris, int i)
 {
     for (int j = 0; j < tetris->next_tetriminos->col; j++) {
-        if (tetris->next_tetriminos->y + i > tetris->opt->size_row + 10 - tetris->next_tetriminos->row) {
+        if (tetris->next_tetriminos->y + i > tetris->opt->size_row +
+            10 - tetris->next_tetriminos->row) {
             put_tetriminos(tetris);
             return 0;
         }
-        if (tetris->next_tetriminos->design[i][j] == 1 && tetris->block[tetris->next_tetriminos->y + i + 2][tetris->next_tetriminos->x + j] > 0) {
+        if (tetris->next_tetriminos->design[i][j] == 1 &&
+            tetris->block[tetris->next_tetriminos->y + i + 2]
+            [tetris->next_tetriminos->x + j] > 0) {
             put_tetriminos(tetris);
             return 0;
         }

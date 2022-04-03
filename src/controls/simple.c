@@ -37,7 +37,6 @@ void left_tetriminos(tetris_t *tetris)
 
 void rotate_tetriminos(tetris_t *tetris)
 {
-    tetris->lines_ok++;
     rotate_matrix(tetris->next_tetriminos->matrix,
     tetris->next_tetriminos->matrix_size);
     update_design(tetris->next_tetriminos);
