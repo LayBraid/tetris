@@ -12,4 +12,6 @@
 
 void init_block(tetris_t *tetris);
 
+void check_full_line(tetris_t *tetris);
+
 #endif

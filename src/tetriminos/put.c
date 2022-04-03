@@ -27,6 +27,5 @@ void put_tetriminos(tetris_t *tetris)
             [tetris->next_tetriminos->x + j]);
         }
     }
-    tetris->opt->level++;
     get_next_tetriminos(tetris);
 }

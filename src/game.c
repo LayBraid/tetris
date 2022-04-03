@@ -9,6 +9,7 @@
 #include "controls.h"
 #include "print.h"
 #include "tetriminos.h"
+#include "game_blocks.h"
 
 static void update_map(tetris_t *tetris)
 {
@@ -26,6 +27,8 @@ static void update_map(tetris_t *tetris)
 
 static void input_manager(tetris_t *tetris, int input)
 {
+    if (tetris->status == PAUSE && input != tetris->opt->key_pause)
+        return;
     if (input != tetris->opt->key_drop)
         drop_tetriminos(tetris);
     for (int i = 0; i < NB_CONTROLS; i++)
@@ -46,10 +49,16 @@ void launch_game(tetris_t *tetris)
     tetris->block_game = newwin((tetris->opt->size_row + 2),
     (tetris->opt->size_col + 2), 0, 25);
     tetris->next = newwin(10, 10, 0, tetris->opt->size_col + 30);
-    while (tetris->status == PLAYING) {
-        update_map(tetris);
+    while (tetris->status != LOOSE) {
         timeout(200);
-        input_manager(tetris, getch());
+        if (tetris->status == PAUSE) {
+            input_manager(tetris, getch());
+            continue;
+        } else {
+            update_map(tetris);
+            input_manager(tetris, getch());
+            check_full_line(tetris);
+        }
     }
     update_map(tetris);
     endwin();

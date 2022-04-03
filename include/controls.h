@@ -25,4 +25,6 @@ void left_tetriminos(tetris_t *tetris);
 
 void rotate_tetriminos(tetris_t *tetris);
 
+void pause_game(tetris_t *tetris);
+
 #endif
