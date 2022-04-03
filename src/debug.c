@@ -22,6 +22,16 @@ static int print_this(int input)
     return my_printf("%c (%d)", (char) input, input);
 }
 
+static void print_design(tetriminos_t *tetriminos)
+{
+    for (int i = 0; i < tetriminos->row; i++) {
+        for (int j = 0; j < tetriminos->col; j++) {
+            print_design_this(tetriminos, i , j);
+        }
+        my_putchar('\n');
+    }
+}
+
 static void print_this_tetriminos(tetriminos_t *tetriminos)
 {
     char *name;
@@ -32,9 +42,9 @@ static void print_this_tetriminos(tetriminos_t *tetriminos)
     if (tetriminos->valid == FALSE)
         my_printf("Tetriminos: '%s': error\n", name);
     else {
-        my_printf("Tetriminos: '%s': size %d*%d, color %d\n%s\n", name,
-        tetriminos->col, tetriminos->row, tetriminos->color,
-        tetriminos->buffer);
+        my_printf("Tetriminos: '%s': size %d*%d, color %d\n", name,
+        tetriminos->col, tetriminos->row, tetriminos->color);
+        print_design(tetriminos);
     }
 }
 

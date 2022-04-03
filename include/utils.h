@@ -37,4 +37,6 @@ void rotate_matrix(int **matrix, int size);
 
 void update_design(info_t *next);
 
+void print_design_this(tetriminos_t *tetriminos, int i, int j);
+
 #endif
