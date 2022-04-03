@@ -36,6 +36,20 @@ static int check_contains(char *buffer)
     return 1;
 }
 
+static int check_other(tetriminos_t *tetriminos)
+{
+    if (tetriminos->col > 1 &&
+        max_length_line(tetriminos->buffer) > tetriminos->col)
+        return 84;
+    if (tetriminos->col == 1 && max_length_line(tetriminos->buffer) > 2)
+        return 84;
+    if (tetriminos->row < max_line(tetriminos->buffer))
+        return 84;
+    if (tetriminos->row > max_line(tetriminos->buffer))
+        return 84;
+    return 1;
+}
+
 static void fill_this(tetriminos_t *tetriminos, char *buffer)
 {
     if (my_strcmp(buffer, "error") == 0 || check_contains(buffer) == 84) {
@@ -50,7 +64,8 @@ static void fill_this(tetriminos_t *tetriminos, char *buffer)
     get_it_char(buffer, ' ', 1), get_it_char(buffer, '\n', 0)));
     tetriminos->buffer = extract_between_limits(buffer,
     get_it_char(buffer, '\n', 0) + 1,my_strlen(buffer) - 2);
-    if (tetriminos->row < 1 && tetriminos->col < 1) {
+    if ((tetriminos->row < 1 && tetriminos->col < 1) ||
+        check_other(tetriminos) == 84) {
         tetriminos->valid = FALSE;
         return;
     }
