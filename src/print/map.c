@@ -38,6 +38,6 @@ void print_map(tetris_t *tetris)
         for (int j = 0; j < tetris->next_tetriminos->col; j++)
             print_next_check(tetris, i, j);
     refresh();
-    wborder(tetris->block_game, '|', '|', '-', '-', '/', '\\', '\\', '/');
+    wborder(tetris->block_game, '|', '|', '-', '-', '+', '+', '+', '+');
     wrefresh(tetris->block_game);
 }
