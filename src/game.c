@@ -63,5 +63,4 @@ void launch_game(tetris_t *tetris)
     }
     update_map(tetris);
     endwin();
-    printf("%d\n", tetris->status);
 }
